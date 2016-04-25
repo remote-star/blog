@@ -4,12 +4,23 @@ block content
 	div.log-in-box-wrapper
 		div.log-in-box
 			h1= title
-			form
+			form(ng-app="loginApp" ng-controller="loginForm" name="loginForm" novalidate ng-submit="login()")
 				div.form-group
 					label(for="username") Username:
-					input#username.form-control(type="text" name="username" placeholder="username")
+					input#username.form-control(type="text" name="username" placeholder="username" ng-model="username" required)
 				div.form-group
 					label(for="password") Password:
-					input#password.form-control(type="text" name="password" placeholder="password")
-				button.btn.btn-default Log in
+					input#password.form-control(type="password" name="password" placeholder="password" ng-model="password" required)
+				div.alert.alert-danger.login-alert(role="alert" ng-show="loginForm.username.$error.required && submitPressed")
+					span.glyphicon.glyphicon-exclamation-sign
+					|&nbsp;Username is required. 
+				div.alert.alert-danger.login-alert(role="alert" ng-show="loginForm.password.$error.required && submitPressed")
+					span.glyphicon.glyphicon-exclamation-sign
+					|&nbsp;Password is required. 
+				div.alert.alert-danger.login-alert(role="alert" ng-show="loginError")
+					span.glyphicon.glyphicon-exclamation-sign
+					|&nbsp;{{errorInfo}}
+				button.btn.btn-default(type="submit") Log in
+block js
+	script(src='/javascripts/lib/angular-md5.js')
 	script(src='/javascripts/admin/login.js')
