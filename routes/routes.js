@@ -1,8 +1,16 @@
-
+var session = require('express-session');
+var settings = require('../settings');
 
 module.exports = function(app) {
 	var routes = require('./index');
 	var admin = require('./admin');
+
+
+	app.use('/admin', session({
+	  secret: settings.cookieSecret,
+	  key: settings.db,//cookie name
+	  cookie: {maxAge: 1000 * 60 * 60 * 24 * 30},
+	}));
 
 	app.use('/', routes);
 	app.use('/admin', admin);

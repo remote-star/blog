@@ -3,8 +3,7 @@ var router = express.Router();
 var crypto = require('crypto');
 var User = require('../models/user.js');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/login', function(req, res, next) {
 	res.render('admin/login', {
 		title: 'Log in'
 	});
@@ -22,15 +21,40 @@ router.post('/login', function (req, res) {
 	  	  password = req.body.password;
 	  	  saltedPassword = password + 'salty';
 	  	  encryptedPassword = md5.update(saltedPassword).digest('hex');
-
 	  	if (user.password != encryptedPassword) {
   			userData.code = 'W';
 	  	} else {
   			userData.code = 'R';
+  			req.session.user = user;
 	  	}
     }
     res.send(JSON.stringify(userData));
   });
+});
+
+// router.use('/', function (req, res, next) {
+// 	console.info(req.session.user);
+//   if (!req.session.user) {
+//     res.redirect('/admin/login');
+//   } else {
+//   	next();
+//   }
+// });
+
+router.get('/', function (req, res, next) {
+	res.render('admin/index', {
+		title: 'Admin'
+	});
+});
+
+router.get('/post', function (req, res, next) {
+  res.render('admin/post', {
+    title: '发表帖子'
+  });
+});
+
+router.post('/logout', function (req, res) {
+  req.session.user = null;
 });
 
 module.exports = router;

@@ -23,7 +23,7 @@ app.controller('loginForm', ['$scope' ,'$http', 'md5', '$window', function($scop
     				break;
     			case 'R':
     				$scope.loginError = false;
-    				$window.location.href = '/';
+    				$window.location.href = '/admin/';
 
     		}
     	})

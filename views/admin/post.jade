@@ -1,0 +1,11 @@
+extends ../layout
+block css
+	link(href="//dn-maxiang.qbox.me/res-min/themes/marxico.css?1457338478607" rel="stylesheet")
+block content
+	div.container-fluid(ng-app="postApp" ng-controller="postBoard")
+		div.row
+			div.col-md-6#postInput(contenteditable="true" ng-keyup="updatePreview()")
+			div.col-md-6#postPreview
+block js
+	script(src='/javascripts/lib/markdown.min.js')
+	script(src='/javascripts/admin/post.js')

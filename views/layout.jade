@@ -1,11 +1,13 @@
 doctype html
 html
   head
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
     title= title
     link(rel='stylesheet', href='/stylesheets/lib/bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/lib/bootstrap-theme.css')
     link(rel='stylesheet', href='/stylesheets/mine.css')
     script(src='/javascripts/lib/angular.js')
+    block css
   body
     block content
   script(src='/javascripts/lib/jquery.js')
