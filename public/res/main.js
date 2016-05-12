@@ -204,7 +204,6 @@ require([
 	"core",
 	"eventMgr",
 	"synchronizer",
-	"publisher",
 	"sharing",
 	"mediaImporter",
 	"css",

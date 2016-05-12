@@ -41,38 +41,10 @@ define([
     }
 
     if(version == "v1") {
-        var gdriveLastChangeId = localStorage["sync.gdrive.lastChangeId"];
-        if(gdriveLastChangeId) {
-            localStorage["gdrive.lastChangeId"] = gdriveLastChangeId;
-            localStorage.removeItem("sync.gdrive.lastChangeId");
-        }
-        var dropboxLastChangeId = localStorage["sync.dropbox.lastChangeId"];
-        if(dropboxLastChangeId) {
-            localStorage["dropbox.lastChangeId"] = dropboxLastChangeId;
-            localStorage.removeItem("sync.dropbox.lastChangeId");
-        }
-
-        var PROVIDER_GDRIVE = "gdrive";
-        var PROVIDER_DROPBOX = "dropbox";
-        var SYNC_PROVIDER_GDRIVE = "sync." + PROVIDER_GDRIVE + ".";
-        var SYNC_PROVIDER_DROPBOX = "sync." + PROVIDER_DROPBOX + ".";
         _.each(fileIndexList, function(fileIndex) {
             var syncIndexList = retrieveIndexArray(fileIndex + ".sync");
             _.each(syncIndexList, function(syncIndex) {
                 var syncAttributes = {};
-                if(syncIndex.indexOf(SYNC_PROVIDER_GDRIVE) === 0) {
-                    syncAttributes.provider = PROVIDER_GDRIVE;
-                    syncAttributes.id = syncIndex.substring(SYNC_PROVIDER_GDRIVE.length);
-                    syncAttributes.etag = localStorage[syncIndex + ".etag"];
-                    syncAttributes.contentCRC = localStorage[syncIndex + ".contentCRC"];
-                    syncAttributes.titleCRC = localStorage[syncIndex + ".titleCRC"];
-                }
-                else if(syncIndex.indexOf(SYNC_PROVIDER_DROPBOX) === 0) {
-                    syncAttributes.provider = PROVIDER_DROPBOX;
-                    syncAttributes.path = decodeURIComponent(syncIndex.substring(SYNC_PROVIDER_DROPBOX.length));
-                    syncAttributes.version = localStorage[syncIndex + ".version"];
-                    syncAttributes.contentCRC = localStorage[syncIndex + ".contentCRC"];
-                }
                 localStorage[syncIndex] = JSON.stringify(syncAttributes);
                 localStorage.removeItem(syncIndex + ".etag");
                 localStorage.removeItem(syncIndex + ".version");
@@ -104,8 +76,6 @@ define([
     }
 
     if(version == "v4") {
-        // Recreate GitHub token
-        localStorage.removeItem("githubToken");
         version = "v5";
     }
 
@@ -114,12 +84,6 @@ define([
             var publishIndexList = retrieveIndexArray(fileIndex + ".publish");
             _.each(publishIndexList, function(publishIndex) {
                 var publishAttributes = JSON.parse(localStorage[publishIndex]);
-                if(publishAttributes.provider == "gdrive") {
-                    // Change fileId to Id to be consistent with syncAttributes
-                    publishAttributes.id = publishAttributes.fileId;
-                    publishAttributes.fileId = undefined;
-                    localStorage[publishIndex] = JSON.stringify(publishAttributes);
-                }
             });
         });
         version = "v6";
@@ -139,7 +103,6 @@ define([
             settings = JSON.parse(localStorage.settings);
             delete settings.editorFontFamily;
             delete settings.editorFontSize;
-            settings.template && (settings.template = settings.template.replace('http://benweet.github.io/stackedit/css/main-min.css', 'http://benweet.github.io/stackedit/res-min/themes/default.css'));
             localStorage.settings = JSON.stringify(settings);
         }
         version = "v10";
@@ -149,13 +112,6 @@ define([
         if(_.has(localStorage, 'settings')) {
             settings = JSON.parse(localStorage.settings);
             ((settings.extensionSettings || {}).markdownExtra || {}).extensions && settings.extensionSettings.markdownExtra.extensions.push('smartypants');
-            settings.sshProxy == 'http://stackedit-ssh-proxy.herokuapp.com/' && (settings.sshProxy = 'https://stackedit-ssh-proxy.herokuapp.com/');
-            settings.template && (settings.template = settings.template.replace('http://benweet.github.io/stackedit/lib/', 'https://stackedit.io/libs/'));
-            settings.template && (settings.template = settings.template.replace('http://benweet.github.io/stackedit/', 'https://stackedit.io/'));
-            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('http://benweet.github.io/stackedit/lib/', 'https://stackedit.io/libs/'));
-            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('http://benweet.github.io/stackedit/', 'https://stackedit.io/'));
-            settings.defaultContent && (settings.defaultContent = settings.defaultContent.replace('http://benweet.github.io/stackedit/', 'https://stackedit.io/'));
-            settings.commitMsg && (settings.commitMsg = settings.commitMsg.replace('http://benweet.github.io/stackedit/', 'https://stackedit.io/'));
             localStorage.settings = JSON.stringify(settings);
         }
         version = "v11";
@@ -197,11 +153,6 @@ define([
     }
 
     if(version == "v15") {
-        localStorage.removeItem('gdrivePermissions');
-        if(_.has(localStorage, 'gdrive.lastChangeId')) {
-            localStorage['google.gdrive0.gdrive.lastChangeId'] = localStorage['gdrive.lastChangeId'];
-            localStorage.removeItem('gdrive.lastChangeId');
-        }
         if(_.has(localStorage, 'settings')) {
             settings = JSON.parse(localStorage.settings);
             if(((settings.extensionSettings || {}).markdownExtra || {}).extensions) {
@@ -216,7 +167,6 @@ define([
     if(version == "v16" || version == "v17") {
         localStorage.removeItem('focusMode');
         localStorage.removeItem('mode');
-        localStorage.removeItem('gdrive.state');
         localStorage.removeItem('google.picasa0.permissions');
         localStorage.removeItem('google.picasa0.userId');
         if(_.has(localStorage, 'settings')) {
@@ -242,8 +192,6 @@ define([
 	if(version == 'v19') {
 		// Force new theme by using themeV4 variable
 		localStorage.removeItem("themeV3");
-		// Force welcome tour
-		localStorage.removeItem("welcomeTour");
 		if(_.has(localStorage, 'settings')) {
 			settings = JSON.parse(localStorage.settings);
 			// New web services

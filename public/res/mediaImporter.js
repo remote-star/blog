@@ -4,8 +4,7 @@ define([
 	"constants",
 	"classes/Provider",
 	"core",
-	"eventMgr",
-	"providers/gplusProvider"
+	"eventMgr"
 ], function($, _, constants, Provider, core, eventMgr) {
 
 	var mediaImporter = {};
@@ -46,21 +45,6 @@ define([
 				reader.onload = (function(importedFile) {
 					return function(e) {
 						var content = new Uint8Array(e.target.result);
-						providerMap.gplus.uploadImage(importedFile.name, content, function(error, imageLink) {
-							if(error) {
-								return;
-							}
-							// Generate an insertLinkCallback by clicking the
-							// pagedown button but without showing the dialog
-							core.catchModal = true;
-							$("#wmd-image-button").click();
-							core.catchModal = false;
-							// Take the insertLinkCallback from core module
-							var insertLinkCallback = core.insertLinkCallback;
-							// Unset it to be sure core module will not call it
-							core.insertLinkCallback = undefined;
-							insertLinkCallback(imageLink || null);
-						});
 					};
 				})(file);
 				var blob = file.slice(0, constants.IMPORT_IMG_MAX_CONTENT_SIZE);

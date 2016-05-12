@@ -12,9 +12,7 @@ define([
 	"extensions/markdownSectionParser",
 	"extensions/partialRendering",
 	"extensions/buttonMarkdownSyntax",
-	"extensions/googleAnalytics",
 	"extensions/twitter",
-	"extensions/dialogManagePublication",
 	"extensions/dialogManageSynchronization",
 	"extensions/dialogManageSharing",
 	"extensions/dialogOpenHarddrive",
@@ -31,11 +29,9 @@ define([
 	"extensions/emailConverter",
 	"extensions/scrollSync",
 	"extensions/buttonSync",
-	"extensions/buttonPublish",
 	"extensions/buttonStat",
 	"extensions/buttonHtmlCode",
 	"extensions/buttonViewer",
-	"extensions/welcomeTour",
 	"extensions/shortcuts",
 	"extensions/userCustom",
 	"extensions/comments",
@@ -170,7 +166,6 @@ define([
 	addEventHook("onEditorCreated");
 	addEventHook("onFileMgrCreated");
 	addEventHook("onSynchronizerCreated");
-	addEventHook("onPublisherCreated");
 	addEventHook("onSharingCreated");
 	addEventHook("onEventMgrCreated");
 
@@ -192,12 +187,6 @@ define([
 	addEventHook("onSyncImportSuccess");
 	addEventHook("onSyncExportSuccess");
 	addEventHook("onSyncRemoved");
-
-	// Publish events
-	addEventHook("onPublishRunning");
-	addEventHook("onPublishSuccess");
-	addEventHook("onNewPublishSuccess");
-	addEventHook("onPublishRemoved");
 
 	// Operations on Layout
 	addEventHook("onLayoutCreated");

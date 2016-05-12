@@ -105,39 +105,6 @@
 							class="icon-provider-couchdb"></i> Open from CouchDB <sup class="text-danger">new</sup></a></li>
 						<li><a href="#" class="action-sync-export-dialog-couchdb"><i
 					        class="icon-provider-couchdb"></i> Save on CouchDB <sup class="text-danger">new</sup></a></li>
-						<li><a href="#" class="action-sync-import-dropbox"><i
-							class="icon-provider-dropbox"></i> Open from Dropbox</a></li>
-						<li><a href="#" class="action-sync-export-dialog-dropbox"><i
-					        class="icon-provider-dropbox"></i> Save on Dropbox</a></li>
-						<li><a href="#" class="submenu-sync-gdrive action-sync-import-gdrive"><i
-							class="icon-provider-gdrive"></i> Open from Google Drive</a></li>
-						<li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i
-							class="icon-provider-gdrive"></i> Save on Google Drive</a></li>
-						<li><a href="#" class="submenu-sync-gdrivesec action-sync-import-gdrivesec"><i
-							class="icon-provider-gdrive"></i> Open from Google Drive<br><small>(2nd account)</small></a></li>
-						<li><a href="#" class="submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i
-							class="icon-provider-gdrive"></i> Save on Google Drive<br><small>(2nd account)</small></a></li>
-						<li><a href="#" class="submenu-sync-gdriveter action-sync-import-gdriveter"><i
-							class="icon-provider-gdrive"></i> Open from Google Drive<br><small>(3rd account)</small></a></li>
-						<li><a href="#" class="submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i
-							class="icon-provider-gdrive"></i> Save on Google Drive<br><small>(3rd account)</small></a></li>
-					</ul>
-				</div>
-				<a href="#" data-toggle="collapse" data-target=".collapse-publish-on"
-					class="list-group-item">
-					<div><i class="icon-upload"></i>Publish</div>
-					<small>Export to the web</small>
-				</a>
-				<div class="sub-menu collapse collapse-publish-on clearfix">
-					<ul class="nav alert alert-danger show-already-published">
-	                    <li><div>"<span class="file-title"></span>" is already published.</div></li>
-	                    <li><a href="#" class="action-update-publication"><i class="icon-upload"></i>
-	                        Update publication</a></li>
-	                    <li><a href="#" data-toggle="modal" data-target=".modal-manage-publish"
-	                        class="action-reset-input"><i class="icon-upload"></i>
-	                        Manage publication</a></li>
-					</ul>
-					<ul class="nav publish-on-provider-list">
 					</ul>
 				</div>
 				<a href="#" data-toggle="modal" data-target=".modal-manage-sharing"
@@ -309,9 +276,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<a href="#" class="btn btn-default pull-left action-import-image-gplus"
-					data-dismiss="modal"><i class="icon-provider-gplus"></i> Import
-					from Google+</a> <a href="#" class="btn btn-default"
+				<a href="#" class="btn btn-default"
 					data-dismiss="modal">Cancel</a> <a href="#"
 					class="btn btn-primary action-insert-image" data-dismiss="modal">OK</a>
 			</div>
@@ -480,70 +445,6 @@
 </div>
 
 
-<div class="modal fade modal-upload-gdrive">
-</div>
-<div class="modal fade modal-upload-gdrivesec">
-</div>
-<div class="modal fade modal-upload-gdriveter">
-</div>
-
-
-<div class="modal fade modal-autosync-gdrive">
-</div>
-<div class="modal fade modal-autosync-gdrivesec">
-</div>
-<div class="modal fade modal-autosync-gdriveter">
-</div>
-
-
-<div class="modal fade modal-upload-dropbox">
-	<div class="modal-dialog">
-		<div class="modal-content">
-
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-hidden="true">&times;</button>
-				<h2 class="modal-title">Save on Dropbox</h2>
-			</div>
-			<div class="modal-body">
-				<p>
-					This will save "<span class="file-title"></span>" to your <i
-						class="icon-provider-dropbox"></i>
-					<code>Dropbox</code>
-					account and keep it synchronized.
-				</p>
-				<div class="form-horizontal">
-					<div class="form-group">
-						<label class="col-sm-3 control-label"
-							for="input-sync-export-dropbox-path">File path</label>
-						<div class="col-sm-8">
-							<input type="text" id="input-sync-export-dropbox-path"
-								placeholder="/path/to/My Document.md" class="form-control">
-							<span class="help-block"> File path is composed of both
-								folder and filename. </span>
-						</div>
-					</div>
-				</div>
-				<blockquote>
-					<b>Note:</b>
-					<ul>
-						<li>Dropbox file path does not depend on document title.</li>
-						<li>The title of your document will not be synchronized.</li>
-						<li>Destination folder must exist.</li>
-						<li>Any existing file at this location will be overwritten.</li>
-					</ul>
-				</blockquote>
-			</div>
-			<div class="modal-footer">
-				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-				<a href="#" data-dismiss="modal"
-					class="btn btn-primary action-sync-export-dropbox">OK</a>
-			</div>
-		</div>
-	</div>
-</div>
-
-
 <div class="modal fade modal-download-couchdb">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -696,279 +597,6 @@
 </div>
 
 
-<div class="modal fade modal-publish">
-	<div class="modal-dialog">
-		<div class="modal-content">
-
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-hidden="true">&times;</button>
-				<h2 class="modal-title">
-					Publish on <span class="publish-provider-name"></span>
-				</h2>
-			</div>
-			<div class="modal-body">
-				<div class="form-horizontal">
-					<div class="form-group modal-publish-ssh">
-						<label class="col-sm-4 control-label" for="input-publish-ssh-host">Host</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-ssh-host"
-								placeholder="hostname.or.ip" class="form-control"> <span
-								class="help-block"> Host must be accessible publicly,
-								unless you're hosting your own StackEdit instance.
-							</span>
-						</div>
-					</div>
-					<div class="form-group modal-publish-ssh">
-						<label class="col-sm-4 control-label" for="input-publish-ssh-port">Port
-							(optional)</label>
-						<div class="col-sm-2">
-							<input type="text" id="input-publish-ssh-port" placeholder="22"
-								class="form-control">
-						</div>
-					</div>
-					<div class="form-group modal-publish-ssh">
-						<label class="col-sm-4 control-label"
-							for="input-publish-ssh-username">Username</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-ssh-username"
-								placeholder="username" class="form-control">
-						</div>
-					</div>
-					<div class="form-group modal-publish-ssh">
-						<label class="col-sm-4 control-label"
-							for="input-publish-ssh-password">Password</label>
-						<div class="col-sm-7">
-							<input type="password" id="input-publish-ssh-password"
-								placeholder="password" class="form-control">
-						</div>
-					</div>
-					<div class="form-group modal-publish-github">
-						<label class="col-sm-4 control-label"
-							for="input-publish-github-repo">Repository</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-github-repo"
-								placeholder="Repository name or URL" class="form-control">
-						</div>
-					</div>
-					<div class="form-group modal-publish-github">
-						<label class="col-sm-4 control-label"
-							for="input-publish-github-branch">Branch</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-github-branch"
-								placeholder="branch-name" class="form-control">
-						</div>
-					</div>
-					<div class="form-group modal-publish-ssh modal-publish-github">
-						<label class="col-sm-4 control-label"
-							for="input-publish-file-path">File path</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-file-path"
-								placeholder="path/to/file.md" class="form-control">
-							<span class="help-block"> File path is composed of both
-								folder and filename. </span>
-						</div>
-					</div>
-					<div class="form-group modal-publish-gist">
-						<label class="col-sm-4 control-label" for="input-publish-filename">Filename</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-filename"
-								placeholder="filename" class="form-control">
-						</div>
-					</div>
-					<div class="form-group modal-publish-gist">
-						<label class="col-sm-4 control-label" for="input-publish-gist-id">Existing
-							ID (optional)</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-gist-id"
-								placeholder="GistID" class="form-control">
-						</div>
-					</div>
-					<div class="form-group modal-publish-gist">
-						<label class="col-sm-4 control-label"
-							for="input-publish-gist-public">Public</label>
-						<div class="col-sm-7">
-							<div class="checkbox">
-								<input type="checkbox" id="input-publish-gist-public"
-									checked="checked" />
-							</div>
-						</div>
-					</div>
-					<div class="form-group modal-publish-blogger modal-publish-bloggerpage">
-						<label class="col-sm-4 control-label"
-							for="input-publish-blogger-url">Blog URL</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-blogger-url"
-								placeholder="http://exemple.blogger.com/" class="form-control">
-						</div>
-					</div>
-					<div class="form-group modal-publish-tumblr">
-						<label class="col-sm-4 control-label"
-							for="input-publish-tumblr-hostname">Blog hostname</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-tumblr-hostname"
-								placeholder="exemple.tumblr.com" class="form-control">
-						</div>
-					</div>
-					<div class="form-group modal-publish-wordpress">
-						<label class="col-sm-4 control-label"
-							for="input-publish-tumblr-hostname">WordPress site</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-wordpress-site"
-								placeholder="exemple.wordpress.com" class="form-control">
-							<span class="help-block"> <a target="_blank"
-								href="http://jetpack.me/">Jetpack plugin</a> is required for
-								self-hosted sites.
-							</span>
-						</div>
-					</div>
-					<div
-						class="form-group modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">
-						<label class="col-sm-4 control-label" for="input-publish-postid">Update
-							existing post ID (optional)</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-postid" placeholder="PostID"
-								class="form-control">
-						</div>
-					</div>
-					<div
-						class="form-group modal-publish-bloggerpage">
-						<label class="col-sm-4 control-label" for="input-publish-pageid">Update
-							existing page ID (optional)</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-pageid" placeholder="PageID"
-								class="form-control">
-						</div>
-					</div>
-					<div class="form-group modal-publish-dropbox">
-						<label class="col-sm-4 control-label"
-							for="input-publish-dropbox-path">File path</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-dropbox-path"
-								placeholder="/path/to/My Document.html" class="form-control">
-							<span class="help-block"> File path is composed of both
-								folder and filename. </span>
-						</div>
-					</div>
-					<div class="form-group modal-publish-gdrive">
-						<label class="col-sm-4 control-label"
-							for="input-publish-gdrive-fileid">File ID (optional)</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-gdrive-fileid"
-								placeholder="FileID" class="form-control"> <span
-								class="help-block">If no file ID is supplied, a new file
-								will be created in your Google Drive root folder. You can move
-								the file afterwards within Google Drive.</span>
-						</div>
-					</div>
-					<div class="form-group modal-publish-gdrive">
-						<label class="col-sm-4 control-label"
-							for="input-publish-gdrive-filename">Force filename
-							(optional)</label>
-						<div class="col-sm-7">
-							<input type="text" id="input-publish-gdrive-filename"
-								placeholder="Filename" class="form-control"> <span
-								class="help-block">If no file name is supplied, the
-								document title will be used.</span>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-4 control-label">Format</label>
-						<div class="col-sm-7">
-							<div class="radio">
-								<label> <input type="radio" name="radio-publish-format"
-									value="markdown"> Markdown
-								</label>
-							</div>
-							<div class="radio">
-								<label> <input type="radio" name="radio-publish-format"
-									value="html"> HTML
-								</label>
-							</div>
-							<div class="radio">
-								<label> <input type="radio" name="radio-publish-format"
-									value="template"> Template
-								</label>
-							</div>
-						</div>
-					</div>
-					<div class="collapse publish-custom-template-collapse">
-						<div class="form-group">
-							<div class="col-sm-4"></div>
-							<div class="col-sm-7">
-								<div class="checkbox">
-									<label> <input type="checkbox"
-										id="checkbox-publish-custom-template"> Custom template
-									</label> <a href="#" class="tooltip-template">(?)</a>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-4"></div>
-							<div class="col-sm-7">
-								<textarea class="form-control"
-									id="textarea-publish-custom-template"></textarea>
-							</div>
-						</div>
-					</div>
-				</div>
-				<blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">
-                    <p><b>Tip:</b> You can use a
-                    <a href="http://jekyllrb.com/docs/frontmatter/"
-                    target="_blank">YAML front matter</a> to specify the title and the tags/labels of your publication.</p>
-                    <p><b>Interpreted variables:</b> <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.</p>
-				</blockquote>
-				<blockquote class="front-matter-info modal-publish-bloggerpage">
-                    <p><b>Tip:</b> You can use a
-                    <a href="http://jekyllrb.com/docs/frontmatter/"
-                    target="_blank">YAML front matter</a> to specify the title of your page.</p>
-                    <p><b>Interpreted variables:</b> <code>title</code>.</p>
-				</blockquote>
-				<blockquote class="url-info modal-publish-bloggerpage">
-                    <p><b>About URL:</b> For newly created page , Blogger API will append a generated number to the url like <code>about-me-1234.html</code>, if you deeply care about your URL naming, you should first create the page on Blogger and then update them with StackEdit specifying the pageId when publishing.
-                    </p>
-                    <p><b>About page visibility:</b> Blogger API does not respect published status for pages.When publishing the page to Blogger, the page will be <strong>live</strong> but not added to the page listing. You should arrange the page listing from Blogger dashboard.
-                    </p>
-				</blockquote>
-			</div>
-			<div class="modal-footer">
-				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-				<a href="#" data-dismiss="modal"
-					class="btn btn-primary action-process-publish">OK</a>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<div class="modal fade modal-manage-publish">
-	<div class="modal-dialog">
-		<div class="modal-content">
-
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-hidden="true">&times;</button>
-				<h2 class="modal-title">Publication</h2>
-			</div>
-			<div class="modal-body">
-				<p>
-					"<span class="file-title"></span>" is published on the following
-					location(s):
-				</p>
-				<div class="publish-list"></div>
-				<blockquote>
-					<p><b>Note:</b> Removing a publish location will not delete the actual publication.</p>
-				</blockquote>
-			</div>
-			<div class="modal-footer">
-				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
-			</div>
-		</div>
-	</div>
-</div>
-
-
 <div class="modal fade modal-manage-sharing">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -993,11 +621,6 @@
             	<p class="msg-no-share-viewer"><b>No sharing link yet!</b>
             	</p>
                 <div class="share-viewer-list"></div>
-            	<blockquote>
-                    <p><b>Note:</b> To share a read-only version of this document, just <a
-                        href="#" class="action-publish-gist" data-dismiss="modal">publish it as a Gist</a> in
-                    Markdown format.</p>
-            	</blockquote>
             	<blockquote>
             		<p><b>Tip:</b> You can open any markdown URL within StackEdit Viewer using <a
             			href="viewer#!url=https://raw.github.com/benweet/stackedit/master/README.md"
@@ -1080,19 +703,6 @@
 										    <b>LaTeX mathematical expressions</b> using <code>$</code> and <code>$$</code> delimiters
 										</label>
 									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label"
-									for="input-settings-gdrive-multiaccount">Google Drive multi-accounts
-								</label>
-								<div class="col-sm-7">
-									<select id="input-settings-gdrive-multiaccount" class="form-control">
-    									<option value="1">1 account</option>
-    									<option value="2">2 accounts</option>
-    									<option value="3">3 accounts</option>
-									</select>
-									<span class="help-block"><b>Please sign in first with Google.</b> Once linked with your Google accounts, changing account is not possible unless you reset the application.</span>
 								</div>
 							</div>
 						</div>
@@ -1186,16 +796,6 @@
 							</div>
 							<div class="form-group">
 								<label class="col-sm-4 control-label"
-									for="textarea-settings-publish-template">Default
-									template <a href="#" class="tooltip-template">(?)</a>
-								</label>
-								<div class="col-sm-7">
-									<textarea id="textarea-settings-publish-template"
-										class="form-control"></textarea>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label"
 									for="textarea-settings-pdf-template">PDF
 									template <a href="#" class="tooltip-template">(?)</a>
 								</label>
@@ -1222,52 +822,6 @@
 										<option value="text/plain">text/plain</option>
 										<option value="text/x-markdown">text/x-markdown</option>
 									</select>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label">Permissions</label>
-								<div class="col-sm-7">
-									<div class="checkbox">
-									    <label>
-										    <input type="checkbox" id="input-settings-gdrive-full-access" />
-										    Allow StackEdit to open any document in Google Drive
-										</label> <span class="help-block">Existing authorization has to be revoked in
-										<a href="https://www.google.com/settings/dashboard" target="_blank">Google Dashboard</a>
-										for this change to take effect.</span>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-4"></div>
-								<div class="col-sm-7">
-									<div class="checkbox">
-									    <label>
-										    <input type="checkbox" id="input-settings-dropbox-full-access" />
-										    Allow StackEdit to open any document in Dropbox
-										</label> <span class="help-block">If unchecked, access will be restricted to folder
-										<b>/Applications/StackEdit</b> for existing files.</span>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-4"></div>
-								<div class="col-sm-7">
-									<div class="checkbox">
-									    <label>
-										    <input type="checkbox" id="input-settings-github-full-access" />
-										    Allow StackEdit to access private repositories in GitHub
-										</label> <span class="help-block">Existing authorization has to be revoked in
-										<a href="https://github.com/settings/applications" target="_blank">GitHub settings</a>
-										for this change to take effect.</span>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label"
-									for="input-settings-publish-commit-msg">GitHub commit message</label>
-								<div class="col-sm-7">
-									<input type="text" id="input-settings-publish-commit-msg"
-										class="form-control">
 								</div>
 							</div>
 							<div class="form-group">
@@ -1418,28 +972,3 @@
 		</div>
 	</div>
 </div>
-
-
-<div class="modal fade modal-add-google-drive-account">
-	<div class="modal-dialog">
-		<div class="modal-content">
-
-			<div class="modal-header">
-				<h2 class="modal-title">Add Google Drive account</h2>
-			</div>
-			<div class="modal-body">
-				<p>To perform this request, you need to configure another Google Drive account in StackEdit.</p>
-				<blockquote><b>Do you want to proceed?</b></blockquote>
-			</div>
-			<div class="modal-footer">
-				<a href="#" class="btn btn-default action-remove-google-drive-state"
-					data-dismiss="modal">No</a>
-				<a href="#" class="btn btn-primary action-add-google-drive-account"
-					data-dismiss="modal">Yes</a>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<div id="dropboxjs" data-app-key="x0k2l8puemfvg0o"></div>

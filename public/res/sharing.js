@@ -8,8 +8,7 @@ define([
 	"classes/AsyncTask",
 	"classes/Provider",
 	"providers/couchdbProvider",
-	"providers/downloadProvider",
-	"providers/gistProvider"
+	"providers/downloadProvider"
 ], function($, _, constants, utils, eventMgr, fileMgr, AsyncTask, Provider) {
 
 	var sharing = {};

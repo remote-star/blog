@@ -36,11 +36,6 @@ app.use(function(req, res, next) {
 	next();
 });
 
-// Serve landing.html in /
-app.get('/', function(req, res) {
-	res.renderDebug('landing.html');
-});
-
 // Serve editor.html in /viewer
 app.get('/editor', function(req, res) {
 	res.renderDebug('editor.html');

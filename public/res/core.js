@@ -130,12 +130,6 @@ define([
 		utils.setInputValue("#input-settings-publish-commit-msg", settings.commitMsg);
 		// Markdown MIME type
 		utils.setInputValue("#input-settings-markdown-mime-type", settings.markdownMimeType);
-		// Gdrive multi-accounts
-		utils.setInputValue("#input-settings-gdrive-multiaccount", settings.gdriveMultiAccount);
-		// Gdrive full access
-		utils.setInputChecked("#input-settings-gdrive-full-access", settings.gdriveFullAccess);
-		// Dropbox full access
-		utils.setInputChecked("#input-settings-dropbox-full-access", settings.dropboxFullAccess);
 		// GitHub full access
 		utils.setInputChecked("#input-settings-github-full-access", settings.githubFullAccess);
 		// Template
@@ -175,14 +169,8 @@ define([
 		newSettings.editMode = utils.getInputRadio("radio-settings-edit-mode");
 		// Commit message
 		newSettings.commitMsg = utils.getInputTextValue("#input-settings-publish-commit-msg", event);
-		// Gdrive multi-accounts
-		newSettings.gdriveMultiAccount = utils.getInputIntValue("#input-settings-gdrive-multiaccount");
 		// Markdown MIME type
 		newSettings.markdownMimeType = utils.getInputValue("#input-settings-markdown-mime-type");
-		// Gdrive full access
-		newSettings.gdriveFullAccess = utils.getInputChecked("#input-settings-gdrive-full-access");
-		// Drobox full access
-		newSettings.dropboxFullAccess = utils.getInputChecked("#input-settings-dropbox-full-access");
 		// GitHub full access
 		newSettings.githubFullAccess = utils.getInputChecked("#input-settings-github-full-access");
 		// Template
@@ -199,9 +187,6 @@ define([
 		eventMgr.onSaveSettings(newSettings.extensionSettings, event);
 
 		if(!event.isPropagationStopped()) {
-			if(settings.dropboxFullAccess !== newSettings.dropboxFullAccess) {
-				storage.removeItem('dropbox.lastChangeId');
-			}
 			$.extend(settings, newSettings);
 			storage.settings = JSON.stringify(settings);
 			storage.themeV4 = theme;
@@ -392,14 +377,6 @@ define([
 				window.location.reload();
 			}
 		});
-		$('.action-add-google-drive-account').click(function() {
-			if(settings.gdriveMultiAccount === 3) {
-				return;
-			}
-			settings.gdriveMultiAccount++;
-			storage.settings = JSON.stringify(settings);
-			window.location.reload();
-		});
 
 		// Hot theme switcher in the settings
 		var currentTheme = window.theme;
@@ -477,9 +454,6 @@ define([
 		$(".action-default-settings").click(function() {
 			storage.removeItem("settings");
 			storage.removeItem("theme");
-			if(!settings.dropboxFullAccess) {
-				storage.removeItem('dropbox.lastChangeId');
-			}
 			window.location.reload();
 		});
 
