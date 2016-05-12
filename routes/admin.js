@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var crypto = require('crypto');
 var User = require('../models/user.js');
+var path = require('path');
 
 router.get('/login', function(req, res, next) {
 	res.render('admin/login', {
@@ -45,6 +46,10 @@ router.get('/', function (req, res, next) {
 	res.render('admin/index', {
 		title: 'Admin'
 	});
+});
+
+router.get('/editor', function (req, res, next) {
+	res.sendfile(path.resolve('views/admin/editor.html'));
 });
 
 router.get('/post', function (req, res, next) {
