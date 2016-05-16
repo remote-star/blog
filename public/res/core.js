@@ -12,11 +12,9 @@ define([
 	"eventMgr",
 	"text!html/bodyEditor.html",
 	"text!html/bodyViewer.html",
-	"text!html/tooltipSettingsTemplate.html",
-	"text!html/tooltipSettingsPdfOptions.html",
 	"storage",
 	'pagedown'
-], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsPdfOptionsTooltipHTML) {
+], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, bodyEditorHTML, bodyViewerHTML) {
 
 	var core = {};
 
@@ -126,18 +124,8 @@ define([
 		utils.setInputValue("#textarea-settings-default-content", settings.defaultContent);
 		// Edit mode
 		utils.setInputRadio("radio-settings-edit-mode", settings.editMode);
-		// Commit message
-		utils.setInputValue("#input-settings-publish-commit-msg", settings.commitMsg);
 		// Markdown MIME type
 		utils.setInputValue("#input-settings-markdown-mime-type", settings.markdownMimeType);
-		// GitHub full access
-		utils.setInputChecked("#input-settings-github-full-access", settings.githubFullAccess);
-		// Template
-		utils.setInputValue("#textarea-settings-publish-template", settings.template);
-		// PDF template
-		utils.setInputValue("#textarea-settings-pdf-template", settings.pdfTemplate);
-		// PDF options
-		utils.setInputValue("#textarea-settings-pdf-options", settings.pdfOptions);
 		// CouchDB URL
 		utils.setInputValue("#input-settings-couchdb-url", settings.couchdbUrl);
 
@@ -167,18 +155,8 @@ define([
 		newSettings.defaultContent = utils.getInputValue("#textarea-settings-default-content");
 		// Edit mode
 		newSettings.editMode = utils.getInputRadio("radio-settings-edit-mode");
-		// Commit message
-		newSettings.commitMsg = utils.getInputTextValue("#input-settings-publish-commit-msg", event);
 		// Markdown MIME type
 		newSettings.markdownMimeType = utils.getInputValue("#input-settings-markdown-mime-type");
-		// GitHub full access
-		newSettings.githubFullAccess = utils.getInputChecked("#input-settings-github-full-access");
-		// Template
-		newSettings.template = utils.getInputTextValue("#textarea-settings-publish-template", event);
-		// PDF template
-		newSettings.pdfTemplate = utils.getInputTextValue("#textarea-settings-pdf-template", event);
-		// PDF options
-		newSettings.pdfOptions = utils.getInputJSONValue("#textarea-settings-pdf-options", event);
 		// CouchDB URL
 		newSettings.couchdbUrl = utils.getInputValue("#input-settings-couchdb-url", event);
 
@@ -472,8 +450,6 @@ define([
 			'Thanks for supporting StackEdit by adding a backlink in your documents!<br/><br/>',
 			'<b class="text-danger">NOTE: Backlinks in Stack Exchange Q/A are not welcome.</b>'
 		].join(''));
-		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML);
-		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML);
 
 		// Avoid dropdown panels to close on click
 		$("div.dropdown-menu").click(function(e) {

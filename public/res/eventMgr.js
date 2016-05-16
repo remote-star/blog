@@ -14,7 +14,6 @@ define([
 	"extensions/buttonMarkdownSyntax",
 	"extensions/twitter",
 	"extensions/dialogManageSynchronization",
-	"extensions/dialogManageSharing",
 	"extensions/dialogOpenHarddrive",
 	"extensions/documentTitle",
 	"extensions/documentSelector",
@@ -29,12 +28,12 @@ define([
 	"extensions/emailConverter",
 	"extensions/scrollSync",
 	"extensions/buttonSync",
+	"extensions/buttonPublish",
 	"extensions/buttonStat",
 	"extensions/buttonHtmlCode",
 	"extensions/buttonViewer",
 	"extensions/shortcuts",
 	"extensions/userCustom",
-	"extensions/comments",
 	"extensions/findReplace",
 	"extensions/htmlSanitizer",
 	"bootstrap",
@@ -166,6 +165,7 @@ define([
 	addEventHook("onEditorCreated");
 	addEventHook("onFileMgrCreated");
 	addEventHook("onSynchronizerCreated");
+	addEventHook("onPublisherCreated");
 	addEventHook("onSharingCreated");
 	addEventHook("onEventMgrCreated");
 

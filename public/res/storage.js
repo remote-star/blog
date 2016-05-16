@@ -125,8 +125,6 @@ define([
             // Force new font
             delete settings.editorFontFamily;
             delete settings.editorFontSize;
-            settings.template && (settings.template = settings.template.replace('https://stackedit.io/res-min/themes/default.css', 'https://stackedit.io/res-min/themes/base.css'));
-            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('https://stackedit.io/res-min/themes/default.css', 'https://stackedit.io/res-min/themes/base.css'));
             localStorage.settings = JSON.stringify(settings);
         }
         version = "v12";
@@ -145,8 +143,6 @@ define([
     if(version == "v14") {
         if(_.has(localStorage, 'settings')) {
             settings = JSON.parse(localStorage.settings);
-            settings.template && (settings.template = settings.template.replace('https://stackedit.io/res-min/themes/default.css', 'https://stackedit.io/res-min/themes/base.css'));
-            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('https://stackedit.io/res-min/themes/default.css', 'https://stackedit.io/res-min/themes/base.css'));
             localStorage.settings = JSON.stringify(settings);
         }
         version = "v15";
@@ -195,9 +191,6 @@ define([
 		if(_.has(localStorage, 'settings')) {
 			settings = JSON.parse(localStorage.settings);
 			// New web services
-			delete settings.pdfTemplate;
-			delete settings.pdfPageSize;
-			delete settings.sshProxy;
 			localStorage.settings = JSON.stringify(settings);
 		}
 		version = "v20";
@@ -216,8 +209,6 @@ define([
     if(version == "v21") {
         if(_.has(localStorage, 'settings')) {
             settings = JSON.parse(localStorage.settings);
-            settings.template && (settings.template = settings.template.replace('https://stackedit.io/libs/MathJax/', 'https://cdn.mathjax.org/mathjax/latest/'));
-            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('/libs/MathJax/', '/res/bower-libs/MathJax/'));
             localStorage.settings = JSON.stringify(settings);
         }
         version = "v22";

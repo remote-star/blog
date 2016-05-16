@@ -26,11 +26,6 @@
 				<ul class="nav left-buttons">
 					<li class="wmd-button-group5 btn-group"></li>
 				</ul>
-				<ul class="nav left-buttons">
-					<li class="wmd-button-group4 btn-group">
-						<a class="btn btn-success button-open-discussion" title="Comments Ctrl/Cmd+M"><i class="icon-comment-alt"></i></a>
-					</li>
-				</ul>
 				<ul class="nav pull-right right-buttons">
 					<li class="offline-status hide">
 					    <div class="text-danger">
@@ -107,11 +102,6 @@
 					        class="icon-provider-couchdb"></i> Save on CouchDB <sup class="text-danger">new</sup></a></li>
 					</ul>
 				</div>
-				<a href="#" data-toggle="modal" data-target=".modal-manage-sharing"
-					class="action-reset-input list-group-item">
-					<div><i class="icon-link"></i>Sharing</div>
-					<small>Share document links</small>
-				</a>
 			</div>
 			<div class="list-group">
 
@@ -120,15 +110,17 @@
 					class="list-group-item action-reset-input" href="#"><i
 					class="icon-hdd"></i> Import from disk</a>
 				<a href="#" data-toggle="collapse" data-target=".collapse-save-as"
-					class="list-group-item"><i class="icon-hdd"></i> Export to disk</a>
+				   class="list-group-item"><i class="icon-hdd"></i> Export to disk</a>
 				<div class="sub-menu collapse collapse-save-as clearfix">
 					<ul class="nav">
 						<li><a class="action-download-md" href="#"><i
-					        class="icon-download"></i> As Markdown</a></li>
+							class="icon-download"></i> As Markdown</a></li>
 						<li><a class="action-download-html" href="#"><i
-					        class="icon-download"></i> As HTML</a></li>
+							class="icon-download"></i> As HTML</a></li>
 						<li><a class="action-download-template" href="#"><i
-					        class="icon-download"></i> Using template</a></li>
+							class="icon-download"></i> Using template</a></li>
+						<li><a class="action-download-pdf" href="#"><i
+							class="icon-download"></i> As PDF </a></li>
 					</ul>
 				</div>
 
@@ -597,44 +589,6 @@
 </div>
 
 
-<div class="modal fade modal-manage-sharing">
-	<div class="modal-dialog">
-		<div class="modal-content">
-
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-hidden="true">&times;</button>
-				<h2 class="modal-title">Sharing</h2>
-			</div>
-			<div class="modal-body">
-                <p>Collaborate on "<span class="file-title"></span>" using the following link(s):</p>
-            	<p class="msg-no-share-editor"><b>No sharing link yet!</b>
-            	</p>
-                <div class="share-editor-list"></div>
-            	<blockquote>
-                    <p><b>Note:</b> To collaborate on this document, just <a
-                        href="#" class="action-sync-export-dialog-couchdb" data-dismiss="modal">save it on CouchDB</a>.
-                    To collaborate via Google Drive or Dropbox, you have to share the file manually from Google Drive/Dropbox websites.</p>
-            	</blockquote>
-                <hr>
-                <p>Share a read-only version of "<span class="file-title"></span>" using the following link(s):</p>
-            	<p class="msg-no-share-viewer"><b>No sharing link yet!</b>
-            	</p>
-                <div class="share-viewer-list"></div>
-            	<blockquote>
-            		<p><b>Tip:</b> You can open any markdown URL within StackEdit Viewer using <a
-            			href="viewer#!url=https://raw.github.com/benweet/stackedit/master/README.md"
-            			title="Sharing example"><code>viewer#!url=</code></a>.</p>
-            	</blockquote>
-			</div>
-			<div class="modal-footer">
-				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
-			</div>
-		</div>
-	</div>
-</div>
-
-
 <div class="modal fade modal-settings">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -796,25 +750,6 @@
 							</div>
 							<div class="form-group">
 								<label class="col-sm-4 control-label"
-									for="textarea-settings-pdf-template">PDF
-									template <a href="#" class="tooltip-template">(?)</a>
-								</label>
-								<div class="col-sm-7">
-									<textarea id="textarea-settings-pdf-template"
-										class="form-control"></textarea>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label" for="textarea-settings-pdf-options">PDF options
-                                    <a href="#" class="tooltip-pdf-options">(?)</a>
-                                </label>
-								<div class="col-sm-7">
-                                    <textarea id="textarea-settings-pdf-options"
-                                              class="form-control"></textarea>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label"
 									for="input-settings-markdown-mime-type">Markdown MIME type
 								</label>
 								<div class="col-sm-7">
@@ -845,14 +780,6 @@
 								your own extension...</a></span>
 					</div>
 					<div class="tab-pane" id="tabpane-settings-utils">
-						<div class="tab-pane-button-container">
-							<a href="#" class="btn btn-block btn-default action-welcome-file"
-								data-dismiss="modal"><i class="icon-help-circled"></i>
-								Hello! document</a> <a href="#"
-								class="btn btn-block btn-default action-welcome-tour"
-								data-dismiss="modal"><i
-								class="icon-help-circled"></i> Welcome tour</a>
-						</div>
 						<div class="tab-pane-button-container">
 							<a href="#"
 								class="btn btn-block btn-default action-import-docs-settings"><i

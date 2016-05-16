@@ -16,14 +16,13 @@ define([], function() {
 	constants.COUCHDB_PAGE_SIZE = 25;
 	constants.TEMPORARY_FILE_INDEX = "file.tempIndex";
 	constants.WELCOME_DOCUMENT_TITLE = "Hello!";
-	constants.DOWNLOAD_IMPORT_URL = "/downloadImport";
+	constants.DOWNLOAD_IMPORT_URL = "downloadImport";
 	constants.PICASA_IMPORT_IMG_URL = "/picasaImportImg";
-	constants.PDF_EXPORT_URL = "/pdfExport";
+	constants.PDF_EXPORT_URL = "pdfExport";
 	constants.COUCHDB_URL = 'https://stackedit.smileupps.com/documents';
 
 	// Site dependent
 	constants.BASE_URL = "http://localhost/";
-	constants.GITHUB_CLIENT_ID = 'e47fef6055344579799d';
 	constants.GATEKEEPER_URL = "https://stackedit-gatekeeper-localhost.herokuapp.com/";
 
 	constants.THEME_LIST = {

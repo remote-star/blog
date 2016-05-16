@@ -52,11 +52,16 @@ router.get('/editor', function (req, res, next) {
 	res.sendfile(path.resolve('views/admin/editor.html'));
 });
 
+router.get('/downloadImport', require('../app/download').importPublic);
+
 router.get('/post', function (req, res, next) {
   res.render('admin/post', {
     title: '发表帖子'
   });
 });
+
+
+router.post('/pdfExport', require('../app/pdf').export);
 
 router.post('/logout', function (req, res) {
   req.session.user = null;
